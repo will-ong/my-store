@@ -1,23 +1,51 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
+<div class="row marketing">
+  <h4>Notes</h4>
+  <p>
+    This is a sample Angular store to demonstrate JavaScript programming and TDD.
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+  <p>
+    Please refer to the README.md for more details.
+  </p>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<div ng-repeat="bill in bills">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="40%">Customer</th>
+        <th width="30%">Created</th>
+        <th width="30%">Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{bill.user.name}}</td>
+        <td>{{bill.user.created | date:short}}</td>
+        <td>{{bill.user.type}}</td>
+      </tr>
+      <tr>
+        <th>Items</th>
+        <th>Price</th>
+        <th>&nbsp;</th>
+      </tr>
+      <tr ng-repeat="item in bill.items">        
+          <td>{{item.name}}</td>
+          <td>{{item.price/100 | currency}}</td>
+          <td>{{item.type}}</td>
+      </tr>
+      <tr>
+        <td><em>Total Amount</em></td>
+        <td colspan="2">{{bill.totalAmount/100 | currency}}</td>
+      </tr>
+      <tr>
+        <td><em>Discount</em></td>
+        <td colspan="2">{{bill.discountAmount/100 | currency}}</td>
+      </tr>
+      <tr>
+        <th><em>Net Payable</em></th>
+        <th colspan="2">{{bill.payableAmount/100 | currency}}</th>
+      </tr>
+    </tbody>
+  </table>
+  <hr/>
 </div>

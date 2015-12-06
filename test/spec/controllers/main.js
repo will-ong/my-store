@@ -14,7 +14,13 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.awesomeThings.length).toBe(3);
-  });
+  // no tests - as there is significant test coverage for the Discount Service to show my approach
+
+  /*
+  to test the controller I would:
+  - change the calculateTotalAmount function to be public (attached to the $scope)
+  - convert the "SEAF" to a $scope function as well
+  - mock the discountService
+  - load the $scope.bills via ajax, mock the back-end and call $digest
+  */
 });
